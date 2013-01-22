@@ -70,7 +70,6 @@ var css = " \
 	#edit_bookmark_form p { display:none; } \
 	#edit_form_checkboxes { margin:0.5em 0; } \
 	textarea.edit_form_input { width:100%; margin:0.25em 0; height:12em; } \
-	.display .when { display:none; } \
 	#footer { margin-bottom:1em; } \
 	";
 	if(window.location.href.indexOf('pinboard.in')<0) { return false; }

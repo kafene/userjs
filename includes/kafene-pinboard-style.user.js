@@ -48,14 +48,17 @@ var css = " \
 	.display a { line-height:1; } \
 	.bookmark_count_box { white-space:nowrap; } \
 	.display br { display:none !important; } \
-	.display .description br { display:block !important; } \
+	/*.display .description br { display:block !important; }*/ \
 	.display .description a { color:#445588; } \
 	.display .description { \
     margin:0 0 0.25em 0; font-family:'Consolas', 'Droid Sans Mono', monospace; \
-    line-height:1.25em !important; \
+    line-height:1.25em !important; white-space:pre-wrap; \
   } \
 	.display a[href^='/u:']:not([href*='t:']) { color:#333; } \
-	.description blockquote { font-family:monospace; margin:0.25em 0.5em; } \
+	.description blockquote { \
+    font-family:'Consolas', 'Droid Sans Mono', monospace; \
+    margin:0.5em; color:#333333; \
+  } \
 	#right_bar, #tag_cloud { margin:0; padding:0; float:left; width:30%; } \
 	#right_bar #tag_cloud { width:100%; margin:0; } \
 	.tag_table { margin:0; width:50%; } \

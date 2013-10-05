@@ -11,12 +11,12 @@
  * By kafene software <http://kafene.org/>
  */
 window.addEventListener("DOMContentLoaded", function () {
-    if (/^mail\.google\./i.test(window.location.host)) {
+    if (!/^mail\.google\./i.test(window.location.host)) {
         return;
     }
 
     var del = document.querySelector('input[type="submit"][value="Delete Forever"]');
-    if (!del) {
+    if ('object' != typeof(del)) {
         return;
     }
 
@@ -27,8 +27,9 @@ window.addEventListener("DOMContentLoaded", function () {
         var boxes = document.querySelectorAll('input[type="checkbox"]');
 
         [].forEach.call(boxes, function (box) {
-            if (box == cbox) { return; }
-            if (box.checked) {
+            if (box == cbox) {
+                return;
+            } else if (box.checked) {
                 box.removeAttribute('checked');
             } else {
                 box.setAttribute('checked', true);

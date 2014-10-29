@@ -53,14 +53,14 @@
 
         var li = document.createElement('li');
         var a = document.createElement('a');
-        var q = encodeURIComponent(parseQueryString(location.search).q || '');
+        var q = document.querySelector('#search_form_input').value;
         var sep = document.createElement('span');
 
         li.classList.add('zcm__item');
         a.classList.add('zcm__link');
         sep.classList.add('zcm__sep--h');
         a.textContent = 'Google';
-        a.href = 'https://encrypted.google.com/search?q=' + q;
+        a.href = 'https://encrypted.google.com/search?q=' + encodeURIComponent(q);
         li.appendChild(a);
         duckbar.appendChild(sep);
         duckbar.appendChild(li);

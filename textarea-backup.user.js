@@ -8,8 +8,8 @@
 // @grant        none
 // @copyright    Copyright (c) 2014 kafene software <http://kafene.org/>
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
-// @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/duckduckgo.user.js
-// @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/duckduckgo.user.js
+// @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/textarea-backup.user.js
+// @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/textarea-backup.user.js
 // ==/UserScript==
 
 /*

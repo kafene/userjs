@@ -3,7 +3,7 @@
 // @version      1.0
 // @description  Use PHP by default on https://eval.in/
 // @namespace    http://kafene.org
-// @include      *
+// @include      https://eval.in/*
 // @run-at       document-end
 // @grant        none
 // @copyright    Copyright (c) 2014 kafene software <http://kafene.org/>

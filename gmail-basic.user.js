@@ -4,7 +4,7 @@
 // @version      0.1
 // @namespace    http://kafene.org
 // @copyright    2014 kafene software <http://kafene.org/>
-// @match        https://mail.google.*/mail/u/0/h/*
+// @match        https://mail.google.com/mail/u/0/h/*
 // @run-at       document-end
 // @grant        none
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>

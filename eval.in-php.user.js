@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         eval.in-php
-// @version      1.0
+// @version      1.1
 // @description  Use PHP by default on https://eval.in/
 // @namespace    http://kafene.org
 // @include      https://eval.in/*

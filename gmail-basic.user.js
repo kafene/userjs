@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         gmail-basic
 // @description  some tweaks for Gmail's basic-HTML mode
-// @version      0.2
+// @version      0.3
 // @namespace    http://kafene.org
 // @copyright    2014 kafene software <http://kafene.org/>
 // @match        https://mail.google.com/mail/u/0/h/*
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('click', function () {
             [].forEach.call(checkboxes, function (checkbox) {
                 var evt = document.createEvent('MouseEvent');
-                evt.initEvent('click');
+                evt.initEvent('click', true, false);
                 checkbox.dispatchEvent(evt);
             });
         });
@@ -52,7 +52,7 @@ if (!window.frameElement) {
         };
 
         // Update every 5 seconds
-        window.setInterval(setUnreadTitle, 5000);
+        /*window.setInterval(setUnreadTitle, 5000);*/
         setUnreadTitle();
     });
 }

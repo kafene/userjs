@@ -27,9 +27,9 @@ window.addEventListener('load', function () {
             key += textarea.id;
         } else if (textarea.name) {
             key += textarea.name;
+        } else {
+            key += ('' + index);
         }
-
-        key += ('#' + index);
 
         if (storage[key]) {
             var originalValue = textarea.value;

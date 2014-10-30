@@ -1,10 +1,13 @@
 // ==UserScript==
 // @name         pinboard-popup-mod
 // @version      1.0
-// @description  Pinboard.in bookmarklet popup page enhancement
+// @description  Pinboard.in bookmarklet popup page enhancements
 // @namespace    http://kafene.org
 // @match        https://*.pinboard.in/add?*
 // @grant        none
+// @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/pinboard-popup-mod.user.js
+// @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/pinboard-popup-mod.user.js
 // ==/UserScript==
 
 /*

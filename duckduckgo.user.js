@@ -1,18 +1,26 @@
 // ==UserScript==
-// @name         DuckDuckGo
+// @name         duckduckgo
 // @version      1.0
 // @description  Stuff for DuckDuckGo.com
 // @namespace    http://kafene.org
 // @match        *://*.duckduckgo.com/*
+// @grant        none
+// @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/duckduckgo.user.js
+// @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/duckduckgo.user.js
 // ==/UserScript==
 
 // Press "g" => focus search box and append "!"
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
     var searchFormInput = (
         document.getElementById('search_form_input') ||
         document.getElementById('search_form_input_homepage')
     );
-    searchFormInput &&
+
+    if (!searchFormInput) {
+        return;
+    }
+
     document.addEventListener('keydown', function (event) {
         if (document.activeElement) {
             var activeElement = document.activeElement;
@@ -43,10 +51,10 @@
             searchFormInput.focus();
         }
     });
-})();
+});
 
 // Add Google fallback link
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
     var duckbar = document.querySelector('#duckbar .zcm');
     if (!duckbar) {
         return;
@@ -65,4 +73,4 @@
     li.appendChild(a);
     duckbar.appendChild(sep);
     duckbar.appendChild(li);
-})();
+});

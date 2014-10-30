@@ -1,8 +1,12 @@
 // ==UserScript==
-// @name          Check Range
-// @namespace     http://kafene.org
-// @description   Toggle checkboxes with Shift+click
-// @include       *
+// @name         check-range
+// @namespace    http://kafene.org
+// @description  Toggle checkboxes with Shift+click
+// @include      *
+// @grant        none
+// @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/check-range.user.js
+// @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/check-range.user.js
 // ==/UserScript==
 
 /*

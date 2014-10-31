@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         link-tweaks
-// @version      1.2
+// @version      1.2.1
 // @description  Open External Links in New Tab, add rel=noreferrer, remove a.ping
 // @namespace    http://kafene.org
 // @include      *
@@ -21,7 +21,7 @@
             a.removeAttribute('ping');
         }
 
-        if (!a.href || 0 !== a.href.indexOf('http') || a.host === host) {
+        if (a.href && 0 === a.href.indexOf('http') && a.host !== host) {
             var rels = a.rel ? a.rel.trim().split(/\s+/) : [];
             a.rel = rels.concat('noreferrer').join(' ');
             a.target = '_blank';

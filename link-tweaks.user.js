@@ -21,7 +21,7 @@
             a.removeAttribute('ping');
         }
 
-        if (!a.host || a.host !== host) {
+        if (!a.href || 0 !== a.href.indexOf('http') || a.host === host) {
             var rels = a.rel ? a.rel.trim().split(/\s+/) : [];
             a.rel = rels.concat('noreferrer').join(' ');
             a.target = '_blank';

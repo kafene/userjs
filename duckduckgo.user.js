@@ -1,17 +1,19 @@
 // ==UserScript==
 // @name         duckduckgo
-// @version      1.0
+// @version      1.0.1
 // @description  Stuff for DuckDuckGo.com
 // @namespace    http://kafene.org
 // @match        *://*.duckduckgo.com/*
+// @run-at       document-start
 // @grant        none
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @require      https://raw.githubusercontent.com/ded/domready/master/src/ready.js
 // @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/duckduckgo.user.js
 // @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/duckduckgo.user.js
 // ==/UserScript==
 
 // Press "g" => focus search box and append "!"
-document.addEventListener('DOMContentLoaded', function () {
+domready(function () {
     var searchFormInput = (
         document.getElementById('search_form_input') ||
         document.getElementById('search_form_input_homepage')
@@ -54,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Add Google fallback link
-document.addEventListener('DOMContentLoaded', function () {
+domready(function () {
     var duckbar = document.querySelector('#duckbar .zcm');
     if (!duckbar) {
         return;

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         link-tweaks
-// @version      1.2.1
+// @version      1.2.2
 // @description  Open External Links in New Tab, add rel=noreferrer, remove a.ping
 // @namespace    http://kafene.org
 // @include      *
@@ -8,11 +8,12 @@
 // @grant        none
 // @copyright    Copyright (c) 2014 kafene software <http://kafene.org/>
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @require      https://raw.githubusercontent.com/ded/domready/master/src/ready.js
 // @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/link-tweaks.user.js
 // @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/link-tweaks.user.js
 // ==/UserScript==
 
- document.addEventListener('DOMContentLoaded', function () {
+domready(function () {
     var host = window.location.host;
 
     var handleLink = function (a) {

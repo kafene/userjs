@@ -1,16 +1,18 @@
 // ==UserScript==
 // @name         pinboard-youtube-alternates
-// @version      1.0
+// @version      1.0.1
 // @description  Adds alternative links to YouTube videos on Pinboard.in
 // @namespace    http://kafene.org
 // @match        *://*.pinboard.in/*
+// @run-at       document-start
 // @grant        none
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @require      https://raw.githubusercontent.com/ded/domready/master/src/ready.js
 // @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/pinboard-youtube-alternates.user.js
 // @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/pinboard-youtube-alternates.user.js
 // ==/UserScript==
 
-document.addEventListener('DOMContentLoaded', function () {
+domready(function () {
     var links = document.querySelectorAll('a.bookmark_title[href^="https://www.youtube.com/watch"]');
     var regex = /[?&]v=([^#&]+)/;
 

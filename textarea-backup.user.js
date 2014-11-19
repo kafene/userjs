@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         textarea-backup
-// @version      1.0
+// @version      1.0.1
 // @description  Retains text entered into textareas.
 // @namespace    http://kafene.org
 // @include      *
-// @run-at       document-end
+// @run-at       document-start
 // @grant        none
 // @copyright    Copyright (c) 2014 kafene software <http://kafene.org/>
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
@@ -15,7 +15,6 @@
 /*
  * Based on: http://userscripts.ru/js/textarea-backup/ by Nikita Vasilyev.
  */
-
 window.addEventListener('load', function () {
     var textareas = document.getElementsByTagName('textarea');
     var storage = window.localStorage;

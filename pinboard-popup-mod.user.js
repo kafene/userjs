@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         pinboard-popup-mod
-// @version      1.0
+// @version      1.0.1
 // @description  Pinboard.in bookmarklet popup page enhancements
 // @namespace    http://kafene.org
 // @match        https://*.pinboard.in/add?*
+// @run-at       document-start
 // @grant        none
 // @license      MIT <https://raw.githubusercontent.com/kafene/userscripts/mater/LICENSE>
+// @require      https://raw.githubusercontent.com/ded/domready/master/src/ready.js
 // @downloadURL  https://raw.githubusercontent.com/kafene/userscripts/master/pinboard-popup-mod.user.js
 // @updateURL    https://raw.githubusercontent.com/kafene/userscripts/master/pinboard-popup-mod.user.js
 // ==/UserScript==
@@ -14,7 +16,7 @@
  * On the "add bookmark" popup/page highlight assigned tags in the tag cloud,
  * and allow clicking on tags to toggle them in the tag input.
  */
-document.addEventListener('DOMContentLoaded', function () {
+domready(function () {
     var style = document.createElement('style');
     style.textContent = 'a.add_tag_active{background-color:rgb(221,238,255) !important;}';
     (document.head || document.documentElement).appendChild(style);

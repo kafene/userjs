@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         google-privacy
-// @version      0.0.1
+// @version      0.0.2
 // @description  some minor privacy enhancements on google
 // @namespace    http://kafene.org
 // @copyright    2014 kafene software <http://kafene.org/>
@@ -65,4 +65,13 @@ window.addEventListener('load', function () {
     });
 
     setTimeout(fun_B4Dz7bjC, 250);
+});
+
+// Focus the search input when "g" is pressed
+/^\/search/.test(window.location.pathname) &&
+document.addEventListener('keydown', function (e, q, d, a) {
+    ('g' === e.key) &&
+    (!(a = (d = document).activeElement) || (!a.isContentEditable && !a.form)) &&
+    (q = d.querySelector('input[name=q]')) &&
+    (e.preventDefault(), q.focus(), q.select(), q.scrollIntoView());
 });

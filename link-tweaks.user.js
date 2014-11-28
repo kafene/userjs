@@ -25,6 +25,10 @@ domready(function () {
         if (a.href && 0 === a.href.indexOf('http') && a.host !== host) {
             var rels = a.rel ? a.rel.trim().split(/\s+/) : [];
             a.rel = rels.concat('noreferrer').join(' ');
+        }
+        
+        // Open new window/tab when link points to different domain
+        if (!(host === a.host || host.endsWith('.' + a.host))) {
             a.target = '_blank';
         }
     };

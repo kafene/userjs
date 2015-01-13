@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         youtube-auto-pause
-// @version      0.1.0
+// @version      0.2.0
 // @description  always pause youtube videos on page load
 // @namespace    http://kafene.org
 // @copyright    2014 kafene software <http://kafene.org/>

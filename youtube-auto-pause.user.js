@@ -1,13 +1,3 @@
-
-window.onerror = function (e) {window.console.log(e);window.alert(e);};
-if (document.domain === "kafene.org" && !window.frameElement) {
-    var xhr = new XMLHttpRequest();
-    var xhrok = function () {alert(xhr.getAllResponseHeaders());};
-    xhr.onreadystatechange = function () {this.readyState > 3 && xhrok();};
-    xhr.open("GET", "http://kafene.org");
-    xhr.send();
-}
-
 // ==UserScript==
 // @name         youtube-auto-pause
 // @version      0.1.0

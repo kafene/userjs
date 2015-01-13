@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         link-tweaks
-// @version      1.2.3
+// @version      1.3.1
 // @description  Open External Links in New Tab, add rel=noreferrer, remove a.ping
 // @namespace    http://kafene.org
 // @include      *
@@ -14,46 +14,32 @@
 // ==/UserScript==
 
 domready(function () {
-    var host = window.location.host;
+    var isHostname = function (a, b) {
+        var longer = a.length > b.length ? a : b;
+        var shorter = longer === a ? b : a;
+        return longer === shorter || longer.endsWith("." + shorter);
+    };
 
     var handleLink = function (a) {
-        if (a.ping) {
-            a.ping = '';
-            a.removeAttribute('ping');
+        a.removeAttribute("ping");
+        if (a.href && a.href.startsWith("http") && !a.matches("[rel~=noreferrer]")) {
+            a.rel = ("noreferrer " + (a.rel || "")).trim();
         }
-
-        if (a.href && 0 === a.href.indexOf('http') && a.host !== host) {
-            var rels = a.rel ? a.rel.trim().split(/\s+/) : [];
-            a.rel = rels.concat('noreferrer').join(' ');
-        }
-        
-        // Open new window/tab when link points to different domain
-        if (!(host === a.host || host.endsWith('.' + a.host))) {
-            a.target = '_blank';
+        if (!isHostname(a.hostname, window.location.hostname)) {
+            a.target = "_blank";
         }
     };
 
-    var observer = new MutationObserver(function (mutations, observer) {
-        mutations.forEach(function (mutation) {
-            if (mutation.addedNodes) {
-                [].forEach.call(mutation.addedNodes, function (node) {
-                    if (node instanceof HTMLAnchorElement) {
-                        handleLink(node);
-                    } else if (node.querySelectorAll) {
-                        [].forEach.call(node.querySelectorAll('a'), handleLink);
-                    }
-                });
+    document.addEventListener("mousedown", function (event) {
+        var elem = event.target;
+        if (!elem || !elem.matches) { return; }
+
+        if (elem.matches("a")) {
+            handleLink(elem);
+        } else if (elem.form && elem.type === "submit") {
+            if (event.ctrlKey || event.shiftKey || event.button === 1) {
+                elem.form.target = "_blank";
             }
-        });
+        }
     });
-
-    observer.observe(document, {
-        childList: true,
-        subtree: true,
-        attributes: false,
-        characterData: false
-    });
-
-    [].forEach.call(document.getElementsByTagName('a'), handleLink);
 });
-

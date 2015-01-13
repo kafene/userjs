@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         pinboard-youtube-alternates
-// @version      1.0.1
+// @version      1.0.2
 // @description  Adds alternative links to YouTube videos on Pinboard.in
 // @namespace    http://kafene.org
 // @match        *://*.pinboard.in/*
@@ -13,26 +13,28 @@
 // ==/UserScript==
 
 domready(function () {
-    var links = document.querySelectorAll('a.bookmark_title[href^="https://www.youtube.com/watch"]');
-    var regex = /[?&]v=([^#&]+)/;
+    var links = document.querySelectorAll("a.bookmark_title[href^='https://www.youtube.com/watch']");
+    var youtubeVideoIdRegex = /[?&]v=([^#&]+)/;
 
-    [].forEach.call(links, function (a) {
-        var v = regex.exec(a.href);
-        if (!v || !v[1]) { return; }
+    [].forEach.call(links, function (link) {
+        var matches = youtubeVideoIdRegex.exec(link.href);
+        if (!matches || !matches[1]) { return; }
+        var videoId = matches[1];
 
-        var description = a.parentNode.querySelector('.description');
+        var description = link.parentNode.querySelector('.description');
         if (!description) {
             description = document.createElement('div');
             description.className = 'description';
-            a.parentNode.insertBefore(description, a.nextSibling);
+            link.parentNode.insertBefore(description, link.nextSibling);
         }
 
-        description.insertAdjacentHTML('AFTERBEGIN',
-            '<p>Watch with: ' +
-            '<a href="http://fixyt.com/watch?v=' + v[1] + '" target="_blank">fixYT</a> &#8214; ' +
-            '<a href="http://toogl.es/#/view/' + v[1] + '" target="_blank">Toogles</a> &#8214; ' +
-            '<a href="http://tube.majestyc.net/?v=' + v[1] + '" target="_blank">Accessible Interface to YouTube</a>' +
-            '</p>'
-        );
+        description.insertAdjacentHTML("AFTERBEGIN",
+            "<p class='youtube-alternatives'>Watch with... " +
+            "<a href='http://fixyt.com/watch?v=" + videoId + "'>fixYT</a> &#8214; " +
+            "<a href='http://toogl.es/#/view/" + videoId + "'>Toogles</a> &#8214; " +
+            "<a href='http://viewpure.com/" + videoId + "'>ViewPure</a> &#8214; " +
+            "<a href='http://quietube.com/v.php/http://www.youtube.com/watch?v=" + videoId + "'>quietube</a> &#8214; " +
+            "<a href='http://tube.majestyc.net/?v=" + videoId + "'>Accessible Interface to YouTube</a>" +
+            "</p>");
     });
 });

@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         check-range
-// @version      1.0.2
+// @version      1.1.0
 // @namespace    http://kafene.org
-// @description  Toggle checkboxes with Shift+click
+// @description  Toggle checkboxes with Shift+click. Bonus: toggle radio buttons too!
 // @include      *
 // @run-at       document-start
 // @grant        none
@@ -13,6 +13,13 @@
 // ==/UserScript==
 
 domready(function () {
+    // Toggle radio buttons by double clicking on the selected one
+    document.addEventListener("dblclick", function (event) {
+        if (event.target.matches("input[type=radio]") && event.target.checked) {
+            event.target.checked = false;
+        }
+    });
+
     /*
      * Check Range - Toggle checkboxes with Shift+click
      *

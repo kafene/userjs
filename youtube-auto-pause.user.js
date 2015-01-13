@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         youtube-auto-pause
-// @version      0.0.1
+// @version      0.1.0
 // @description  always pause youtube videos on page load
 // @namespace    http://kafene.org
 // @copyright    2014 kafene software <http://kafene.org/>
@@ -14,19 +14,6 @@
 // ==/UserScript==
 
 domready(function () {
-    [].forEach.call(document.querySelectorAll("video"), function (video) {
-        if (!video.paused) {
-            video.pause();
-        } else {
-            video.addEventListener("play", (function () {
-                var paused = false;
-                return function () {
-                    if (!paused) {
-                        this.pause();
-                        paused = true;
-                    }
-                };
-            })());
-        }
-    });
+    var buttons = document.querySelectorAll(".ytp-button-pause");
+    [].forEach.call(buttons, function (button) {button.click()});
 });

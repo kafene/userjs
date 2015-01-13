@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         gmail-basic
-// @version      0.3.1
+// @version      0.3.2
 // @description  some tweaks for Gmail's basic-HTML mode
 // @namespace    http://kafene.org
 // @copyright    2014 kafene software <http://kafene.org/>

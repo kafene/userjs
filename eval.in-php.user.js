@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         eval.in-php
-// @version      1.1.1
+// @version      1.1.2
 // @description  Use PHP by default on https://eval.in/
 // @namespace    http://kafene.org
 // @include      https://eval.in/*
@@ -15,12 +15,9 @@
 window.addEventListener("load", function () {
     var selector = "select[name=lang] optgroup[label=PHP] option:first-of-type";
     document.querySelector(selector).selected = true;
-
     var textarea = document.querySelector("textarea#code");
-
     if ("" === textarea.textContent.trim()) {
         textarea.textContent = "<?php\n\n";
     }
-
     textarea.focus();
 });

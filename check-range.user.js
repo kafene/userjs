@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         check-range
-// @version      1.1.0
+// @version      1.1.1
 // @namespace    http://kafene.org
 // @description  Toggle checkboxes with Shift+click. Bonus: toggle radio buttons too!
 // @include      *

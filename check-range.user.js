@@ -13,9 +13,12 @@
 // ==/UserScript==
 
 domready(function () {
-    // Toggle radio buttons by double clicking on the selected one
-    document.addEventListener("dblclick", function (event) {
-        if (event.target.matches("input[type=radio]") && event.target.checked) {
+    // Toggle radio buttons by shift-clicking on the selected one
+    document.addEventListener("click", function (event) {
+        if (event.target.checked &&
+            (event.shiftKey || event.button == 1) &&
+            event.target.matches("input[type=radio]"))
+        {
             event.target.checked = false;
         }
     });

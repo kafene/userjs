@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         link-tweaks
-// @version      1.3.2
+// @version      1.3.3
 // @description  Open External Links in New Tab, add rel=noreferrer, remove a.ping
 // @namespace    http://kafene.org
 // @include      *
@@ -32,14 +32,8 @@ domready(function () {
 
     document.addEventListener("mousedown", function (event) {
         var elem = event.target;
-        if (!elem || !elem.matches) { return; }
-
-        if (elem.matches("a")) {
+        if (elem && elem.tagName && elem.tagName.toLowerCase === "a") {
             handleLink(elem);
-        } else if (elem.form && elem.type === "submit") {
-            if (event.ctrlKey || event.shiftKey || event.button === 1) {
-                elem.form.target = "_blank";
-            }
         }
     });
 });

@@ -25,7 +25,7 @@ domready(function () {
         if (a.href && a.href.startsWith("http") && !a.matches("[rel~=noreferrer]")) {
             a.rel = ("noreferrer " + (a.rel || "")).trim();
         }
-        if (!isHostname(a.hostname, window.location.hostname)) {
+        if (a.hostname && !isHostname(a.hostname, window.location.hostname)) {
             a.target = "_blank";
         }
     };

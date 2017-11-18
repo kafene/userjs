@@ -3,8 +3,8 @@
 // @namespace    http://kafene.org
 // @version      1.0.2
 // @license      MPL-2.0 <https://raw.githubusercontent.com/kafene/userjs/master/LICENSE>
-// @downloadURL  https://raw.githubusercontent.com/kafene/userjs/master/reddit-no-np-links.user.js
-// @updateURL    https://raw.githubusercontent.com/kafene/userjs/master/reddit-no-np-links.user.js
+// @downloadURL  https://raw.githubusercontent.com/kafene/userjs/master/scripts/reddit-no-np-links.user.js
+// @updateURL    https://raw.githubusercontent.com/kafene/userjs/master/scripts/reddit-no-np-links.user.js
 // @match        *://*.reddit.com/*
 // @run-at       document-start
 // @grant        none
